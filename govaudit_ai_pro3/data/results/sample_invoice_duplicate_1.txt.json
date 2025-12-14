@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "extraction": {
+    "fields": {
+      "invoice_number": "INV-7777",
+      "vendor": "BlueStar Ltd",
+      "total": "18000.00",
+      "date": "2025-03-05"
+    },
+    "raw_text": "Invoice: INV-7777\nVendor: BlueStar Ltd\nDate: 2025-03-05\nTotal: 18000.00\n"
+  },
+  "risk": {
+    "score": 40,
+    "flags": [
+      "Duplicate invoice detected"
+    ]
+  }
+}

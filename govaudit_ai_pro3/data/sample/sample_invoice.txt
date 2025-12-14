@@ -1,0 +1,5 @@
+Sample Invoice
+Invoice: INV-0001
+Total: 1000.00
+Vendor: Sample Vendor
+Date: 2025-01-01
