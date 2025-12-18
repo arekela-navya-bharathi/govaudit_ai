@@ -1,6 +1,7 @@
 from fastapi import APIRouter, UploadFile, File
 from typing import List
 import os, uuid, json
+from fastapi.responses import FileResponse
 
 router = APIRouter()
 
@@ -59,7 +60,7 @@ def get_history():
     return {"status": "success", "results": load_history()}
 
 # Endpoint to serve file downloads
-from fastapi.responses import FileResponse
+
 
 @router.get("/download/{filename}")
 def download_file(filename: str):

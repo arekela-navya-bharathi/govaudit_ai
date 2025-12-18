@@ -138,5 +138,33 @@
     "risk_score": 0,
     "flags": [],
     "download_url": "/v1/download/36c5bb85-c913-457e-b0fc-752d1c218790_sample_invoice_normal.txt"
+  },
+  {
+    "file": "sample_invoice_duplicate_1.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/9b2d45dd-1b8e-421e-9b07-664ba405b0a4_sample_invoice_duplicate_1.txt"
+  },
+  {
+    "file": "sample_invoice_duplicate_2.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/eb67a47a-8ed5-4533-996a-9007344c2039_sample_invoice_duplicate_2.txt"
+  },
+  {
+    "file": "sample_invoice_high_amount.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/41bced3f-5ecf-4adc-b62a-0d045177269f_sample_invoice_high_amount.txt"
+  },
+  {
+    "file": "sample_invoice_image.png",
+    "type": "image/png",
+    "risk_score": 2,
+    "flags": [],
+    "download_url": "/v1/download/7af4c064-f3ad-40e6-baa7-b2ba75476c57_sample_invoice_image.png"
   }
 ]

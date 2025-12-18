@@ -80,9 +80,6 @@ export default function Dashboard() {
               Start Audit
             </button>
 
-            <button className="px-6 py-3 rounded-xl border border-white/20 hover:bg-white/5 transition">
-              View Intelligence Logs
-            </button>
           </div>
         </motion.div>
 
