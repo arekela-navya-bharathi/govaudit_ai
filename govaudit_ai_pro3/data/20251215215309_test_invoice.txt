@@ -1,0 +1,4 @@
+Invoice No: INV-101
+Vendor: ABC Pvt Ltd
+Total Amount: 45000
+Date: 2024-11-02

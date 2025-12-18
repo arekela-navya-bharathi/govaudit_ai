@@ -1,0 +1,30 @@
+[
+  {
+    "file": "sample_invoice_duplicate_2.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/055fcf4c-2849-461e-926c-db221939459c_sample_invoice_duplicate_2.txt"
+  },
+  {
+    "file": "sample_invoice_duplicate_2.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/794b227d-a359-4573-adab-d459f1abe19f_sample_invoice_duplicate_2.txt"
+  },
+  {
+    "file": "sample_invoice_pdf.pdf",
+    "type": "application/pdf",
+    "risk_score": 1,
+    "flags": [],
+    "download_url": "/v1/download/85423425-53fe-43c3-8de8-eb3769984553_sample_invoice_pdf.pdf"
+  },
+  {
+    "file": "sample_invoice_normal.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/f569669f-9b79-46ab-8a42-42dd430b9bef_sample_invoice_normal.txt"
+  }
+]

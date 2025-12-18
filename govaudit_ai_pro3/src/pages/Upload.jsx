@@ -1,43 +1,82 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+const API_PREDICT = "http://127.0.0.1:8000/v1/predict";
+const API_HISTORY = "http://127.0.0.1:8000/v1/history";
 
 export default function Upload() {
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [results, setResults] = useState([]);
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+  const fetchHistory = async () => {
+    try {
+      const res = await axios.get(API_HISTORY);
+      if (res.data.status === "success") setResults(res.data.results);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const handleUpload = () => {
-    if (!file) {
-      alert("Please select a file first");
-      return;
-    }
-    setLoading(true);
-    // Simulate file upload and analyze
-    setTimeout(() => {
-      alert(`File "${file.name}" uploaded and analyzed!`);
+  useEffect(() => { fetchHistory(); }, []);
+
+  const analyze = async () => {
+    if (!files.length) { setError("Please select at least one file"); return; }
+
+    setLoading(true); setError("");
+    const formData = new FormData();
+    files.forEach(f => formData.append("files", f));
+
+    try {
+      await axios.post(API_PREDICT, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+        timeout: 20000
+      });
+      fetchHistory(); // refresh table after analysis
+    } catch (err) {
+      console.error(err);
+      if (err.code === "ECONNABORTED") setError("Server timeout. Try smaller files.");
+      else setError("Audit failed. Backend not responding.");
+    } finally {
       setLoading(false);
-    }, 2000);
+    }
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-8">
-      <h2 className="text-xl font-semibold mb-4 text-gray-800">Upload & Analyze</h2>
-      <input
-        type="file"
-        onChange={handleFileChange}
-        className="mb-4 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4
-          file:rounded file:border-0 file:text-sm file:font-semibold
-          file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
-      />
-      <button
-        onClick={handleUpload}
-        disabled={loading}
-        className="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 disabled:opacity-50"
-      >
-        {loading ? "Uploading..." : "Upload & Analyze"}
+    <div className="p-10 text-white">
+      <input type="file" multiple onChange={(e) => setFiles([...e.target.files])} className="mb-4" />
+      <button onClick={analyze} disabled={loading} className="bg-purple-600 px-6 py-3 rounded-xl">
+        {loading ? "Scanning..." : "Analyze"}
       </button>
+
+      {error && <p className="text-red-400 mt-4">{error}</p>}
+
+      <h2 className="mt-6 text-xl font-bold text-purple-400">Download History</h2>
+      <table className="w-full mt-2 border-collapse">
+        <thead>
+          <tr className="border-b border-purple-500/50">
+            <th className="p-2 text-left">File</th>
+            <th className="p-2 text-left">Type</th>
+            <th className="p-2 text-left">Risk Score</th>
+            <th className="p-2 text-left">Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          {results.map((r, i) => (
+            <tr key={i} className="border-b border-purple-500/20">
+              <td className="p-2">{r.file}</td>
+              <td className="p-2">{r.type}</td>
+              <td className={`p-2 ${r.risk_score>=60 ? "text-red-400" : "text-green-400"}`}>
+                {r.risk_score}
+              </td>
+              <td className="p-2">
+                <a href={r.download_url} download className="text-purple-400 underline">Download</a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

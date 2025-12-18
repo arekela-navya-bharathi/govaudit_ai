@@ -1,0 +1,4 @@
+Invoice: INV-7777
+Vendor: BlueStar Ltd
+Date: 2025-03-05
+Total: 18000.00

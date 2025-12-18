@@ -1,66 +1,54 @@
-from fastapi import APIRouter, UploadFile, File
+# src/api/routes/ingest.py
+
+from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi.responses import FileResponse
 import os
+import uuid
 import shutil
 
 router = APIRouter()
 
-UPLOAD_DIR = "data/raw"
-os.makedirs(UPLOAD_DIR, exist_ok=True)
+# Folder to store uploaded/scanned documents
+DOCS_DIR = "data/documents"
 
-@router.post("/upload")
-async def upload_file(file: UploadFile = File(...)):
-    file_path = os.path.join(UPLOAD_DIR, file.filename)
+# Make sure folder exists
+os.makedirs(DOCS_DIR, exist_ok=True)
 
-    with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
+# ✅ POST: upload one or multiple files
+@router.post("/docs")
+async def upload_documents(files: list[UploadFile] = File(...)):
+    saved_files = []
 
-    return {
-        "ok": True,
-        "path": file_path
-    }
+    for file in files:
+        try:
+            # generate unique filename to prevent overwrite
+            filename = f"{uuid.uuid4()}_{file.filename}"
+            filepath = os.path.join(DOCS_DIR, filename)
 
+            # save file to disk
+            with open(filepath, "wb") as f:
+                shutil.copyfileobj(file.file, f)
 
-DATA_DIR = "data/raw"
+            saved_files.append(filename)
 
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Failed to save {file.filename}: {str(e)}")
+
+    return {"status": "success", "files": saved_files}
+
+# ✅ GET: list all uploaded/scanned documents
 @router.get("/docs")
-def list_documents():
-    docs = []
+async def list_documents():
+    if not os.path.exists(DOCS_DIR):
+        return {"status": "success", "documents": []}
 
-    if not os.path.exists(DATA_DIR):
-        return {"docs": []}
+    files = [f for f in os.listdir(DOCS_DIR) if os.path.isfile(os.path.join(DOCS_DIR, f))]
+    return {"status": "success", "documents": files}
 
-    for file in os.listdir(DATA_DIR):
-        if file.endswith(".txt"):
-            docs.append({
-                "file": file,
-                "type": "Invoice",
-                "risk_score": 20  # temp static (or read from DB later)
-            })
-
-    return {"docs": docs}
-
-
-RESULTS_DIR = "data/results"
-
-@router.get("/docs")
-def list_documents():
-    docs = []
-
-    for file in os.listdir(DATA_DIR):
-        if not file.endswith(".txt"):
-            continue
-
-        score = 0
-        result_file = f"{RESULTS_DIR}/{file}.json"
-
-        if os.path.exists(result_file):
-            with open(result_file) as f:
-                score = json.load(f)["risk"]["score"]
-
-        docs.append({
-            "file": file,
-            "type": "Invoice",
-            "risk_score": score
-        })
-
-    return {"docs": docs}
+# ✅ GET: download a specific document
+@router.get("/docs/{filename}")
+async def download_document(filename: str):
+    filepath = os.path.join(DOCS_DIR, filename)
+    if not os.path.exists(filepath):
+        raise HTTPException(status_code=404, detail="File not found")
+    return FileResponse(filepath, media_type="application/octet-stream", filename=filename)

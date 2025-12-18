@@ -1,0 +1,4 @@
+Invoice: INV-5000
+Vendor: Mega Infra Corp
+Date: 2025-02-12
+Total: 250000.00

@@ -31,7 +31,10 @@ export default function UploadAnalyze() {
       setMessage("Secure upload failed. Check backend status.");
     }
 
-    setTimeout(() => setScanning(false), 1500);
+    finally {
+  setScanning(false);
+}
+
   };
 
   return (

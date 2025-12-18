@@ -1,0 +1,52 @@
+{
+  "docs": [
+    {
+      "file": "sample_invoice_image.png",
+      "type": "Invoice",
+      "risk_score": 20,
+      "flags": []
+    },
+    {
+      "file": "sample_invoice_duplicate_1.txt",
+      "type": "Invoice",
+      "risk_score": 20,
+      "flags": []
+    },
+    {
+      "file": "20251215215309_test_invoice.txt",
+      "type": "Invoice",
+      "risk_score": 20,
+      "flags": []
+    },
+    {
+      "file": "sample_invoice_duplicate_1.txt",
+      "type": "Invoice",
+      "risk_score": 20,
+      "flags": []
+    },
+    {
+      "file": "sample_invoice_duplicate_2.txt",
+      "type": "Invoice",
+      "risk_score": 20,
+      "flags": []
+    },
+    {
+      "file": "sample_invoice_high_amount.txt",
+      "type": "Invoice",
+      "risk_score": 20,
+      "flags": []
+    },
+    {
+      "file": "sample_invoice_normal.txt",
+      "type": "Invoice",
+      "risk_score": 20,
+      "flags": []
+    },
+    {
+      "file": "test_invoice.txt",
+      "type": "Invoice",
+      "risk_score": 20,
+      "flags": []
+    }
+  ]
+}

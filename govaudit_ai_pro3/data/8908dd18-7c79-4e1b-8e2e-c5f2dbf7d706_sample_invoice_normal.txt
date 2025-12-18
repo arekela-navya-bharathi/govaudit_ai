@@ -1,0 +1,4 @@
+Invoice: INV-1001
+Vendor: Alpha Traders
+Date: 2025-01-10
+Total: 9500.00
