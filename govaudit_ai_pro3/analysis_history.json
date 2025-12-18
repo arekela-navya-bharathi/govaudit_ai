@@ -26,5 +26,117 @@
     "risk_score": 0,
     "flags": [],
     "download_url": "/v1/download/f569669f-9b79-46ab-8a42-42dd430b9bef_sample_invoice_normal.txt"
+  },
+  {
+    "file": "sample_invoice_high_amount.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/a2d9668b-5c3d-429a-a15f-65f8352fc837_sample_invoice_high_amount.txt"
+  },
+  {
+    "file": "sample_invoice_high_amount.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/156fe561-2c09-4cd9-a91b-db59a2b7d4fd_sample_invoice_high_amount.txt"
+  },
+  {
+    "file": "sample_invoice_high_amount.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/b5aedf78-e9f5-4151-ab75-c9553eecdd0f_sample_invoice_high_amount.txt"
+  },
+  {
+    "file": "sample_invoice_high_amount.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/a5c7dfb9-8d47-4a45-883f-481f6e0645c0_sample_invoice_high_amount.txt"
+  },
+  {
+    "file": "sample_invoice_high_amount.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/09aa6d5e-dfee-4550-a305-c89cf2bfe679_sample_invoice_high_amount.txt"
+  },
+  {
+    "file": "sample_invoice_high_amount.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/cce044e0-5a0c-4b45-b9c4-3cba098b750c_sample_invoice_high_amount.txt"
+  },
+  {
+    "file": "test_invoice.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/51e4f05b-b647-46da-a275-151ae7ad35c9_test_invoice.txt"
+  },
+  {
+    "file": "test_invoice.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/1ddb5575-e6be-426c-aaac-ac06126812f2_test_invoice.txt"
+  },
+  {
+    "file": "test_invoice.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/dd5fe3a2-56e5-4b85-b681-c50ca71536ef_test_invoice.txt"
+  },
+  {
+    "file": "test_invoice.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/6c4ae0a0-25a4-47dc-b03c-992a692910b9_test_invoice.txt"
+  },
+  {
+    "file": "test_invoice.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/75b584b0-839b-4aeb-a08f-e3f119354bb8_test_invoice.txt"
+  },
+  {
+    "file": "sample_invoice_high_amount.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/2af2fc58-9182-4424-854d-1546f3e9fdb9_sample_invoice_high_amount.txt"
+  },
+  {
+    "file": "sample_invoice_duplicate_2.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/fb62bd04-07f4-4a88-a9bf-fb826baaa047_sample_invoice_duplicate_2.txt"
+  },
+  {
+    "file": "sample_invoice_high_amount.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/eb6e91ab-09a7-4cd6-a92b-03afb3c963aa_sample_invoice_high_amount.txt"
+  },
+  {
+    "file": "sample_invoice_image.png",
+    "type": "image/png",
+    "risk_score": 2,
+    "flags": [],
+    "download_url": "/v1/download/1fc96dcb-8ae4-407e-9d5a-342711f7581a_sample_invoice_image.png"
+  },
+  {
+    "file": "sample_invoice_normal.txt",
+    "type": "text/plain",
+    "risk_score": 0,
+    "flags": [],
+    "download_url": "/v1/download/36c5bb85-c913-457e-b0fc-752d1c218790_sample_invoice_normal.txt"
   }
 ]
